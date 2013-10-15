@@ -17,6 +17,10 @@ namespace ImageHoster.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        public AccountController()
+        {
+            
+        }
         //
         // GET: /Account/Login
 
@@ -263,7 +267,7 @@ namespace ImageHoster.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (var db = new ImageHosterContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

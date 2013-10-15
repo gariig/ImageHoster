@@ -25,11 +25,11 @@ namespace ImageHoster.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<ImageHosterContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new ImageHosterContext())
                     {
                         if (!context.Database.Exists())
                         {
